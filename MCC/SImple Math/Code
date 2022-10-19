@@ -9,6 +9,8 @@
 #include <vector>
 using namespace std;
 
+#define M 1000000007
+
 int addition(int n)
 {
     int sum=0;
@@ -23,7 +25,7 @@ int addition(int n)
                 if (v[i])
                 {
                    int a=(i+1);
-                   sum+=a;
+                   sum=(sum+a)%M;
                    //cout << (i + 1) << " ";
                 }
            }
@@ -50,13 +52,13 @@ int multiplication(int n)
                 if (v[i])
                 {
                     int a=(i+1);
-                    temp*=a;
+                    temp=(temp*a)%M;
                     //cout << (i + 1) << " " << temp << ' ';
                 }
                 //cout << "\n";
                 //cout << temp << endl;
            }
-            sum+=temp;
+            sum=(sum+temp)%M;
             //cout << "\n";
             //cout << sum << endl;
         } while (prev_permutation(v.begin(), v.end()));
@@ -81,11 +83,11 @@ int bitwise(int n)
                 if (v[i])
                 {
                     int a=(i+1);
-                    temp=temp^a;
+                    temp=(temp^a)%M;
                    //cout << (i + 1) << " ";
                 }
            }
-            sum+=temp;
+            sum=(sum+temp)%M;
            //cout << "\n";
         } while (prev_permutation(v.begin(), v.end()));
     }
@@ -93,7 +95,7 @@ int bitwise(int n)
 }
 
 /*
- 1
+·1
  2
  3
  4
