@@ -50,8 +50,7 @@ int multiplication(int n)
                 if (v[i])
                 {
                     int a=(i+1);
-                    int b=a;
-                    temp=(a^b);
+                    temp*=a;
                     //cout << (i + 1) << " " << temp << ' ';
                 }
                 //cout << "\n";
@@ -68,13 +67,15 @@ int multiplication(int n)
 int bitwise(int n)
 {
     int sum=0;
-    for(int r=1;r<=n;r++)
+    double sum1=n/2.0*(n+1);
+    sum+=sum1;
+    for(int r=2;r<=n;r++)
     {
         vector<bool> v(n);
         fill(v.begin(), v.begin() + r, true);
         do
         {
-            int temp=1;
+            int temp=0;
             for (int i = 0; i < n; ++i)
             {
                 if (v[i])
@@ -84,17 +85,23 @@ int bitwise(int n)
                    //cout << (i + 1) << " ";
                 }
            }
-            sum=(sum^temp);
+            sum+=temp;
            //cout << "\n";
         } while (prev_permutation(v.begin(), v.end()));
     }
     return sum;
 }
 
-int main(int argc, const char * argv[])
+/*
+
+*/
+
+int main()
 {
     int n,p;
-    cin >> n >> p;
+    string bin;
+    cin >> bin >> bin >> n >> bin >> bin >> p >> bin;
+    getline(cin,bin);
     
     switch (p) {
         case 1:
