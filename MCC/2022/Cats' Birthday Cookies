@@ -158,3 +158,36 @@ int main()
 	}
 }
 
+/*
+For each test case:
+Create variables Horz=0, Vert=0 to count the number of each flips.
+
+Firstly, rearrange every instruction, so that all the C's lies at the back of the instruction. I do so for the reason stated later.
+
+Then, I convert the (decimal value-1)[because it start from position 0] for each friend into binary. 
+It actually comes from my observation, the first bit (The rightmost or the binary) will only be affected by the first instruction (The leftmost of the instruction), so on. 
+
+A: Do nothing.
+B: Horizontally flipped. Horz++
+C: Vertically flipped. Vert++
+
+So check if the nth bit of the binary(from the right) is 1:
+If it is, it is affected by the instruction, do the corresponding operation,
+else do nothing and proceed.
+
+The reason for leaving the C's behind:
+Instruction C actually don't change the position of the binary and decimal values. (if the binary is originally b1b2b3....bm, after operation C, it is still b1b2b3....bm)
+What C do, is when the decimal is larger than the total number of columns, where the last few bits (The leftmost bits) are those we should concern.
+
+eg 
+Ins: ABAAB
+Friend: 25 -> 11001
+Then do this
+ABAAB first instruction is A
+10011 first binary is 1, the rightmost 1
+
+1 -> A do nothing
+1 -> A do nothing
+B -> B horz++
+*/
+
