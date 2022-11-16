@@ -16,11 +16,11 @@ void solve()
 			cin >> score;
 			s.push_back(score);
 	}
-	if(s[place]>0)
+	if(s[place-1]>0)
 	{
 		for(ll i=place;i<num;i++)
 		{
-			if(s[i]>=s[place])
+			if(s[i]>=s[place-1])
 			{
 				counter+=1;
 			}
